@@ -2,6 +2,19 @@
   --main-color: rgb(10, 102, 206);
 }
 
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+form div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .outer {
   display: flex;
   flex-direction: column;

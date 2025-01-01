@@ -21,29 +21,44 @@
     <div class="container">
       <h2>Məhsullar</h2>
 
-      <table class="rwd-table">
-        <tr>
-          <td>Məhsul adı</td>
-          <td>Firma</td>
-          <td>Kateqoriya</td>
-          <td>Standart satış</td>
-        </tr>
-
-        {% for mehsul in mehsullar %}
+      <form action="process/" method="POST">
+        {% csrf_token %}
+        <table class="rwd-table">
           <tr>
-            <td>{{ mehsul.mehsul_adi }}</td>
-            <td><a href="{% url "firma" mehsul.firma %}">{{ mehsul.firma }}</a></td>
-            <td>
-
-              {% for kategori in mehsul.kategoriya.all %}
-                {{ kategori.kategoriya }}
-              {% endfor %}
-
-            </td>
-            <td>{{ mehsul.standart_satis }} AZN</td>
+            <td>Məhsul adı</td>
+            <td>Firma</td>
+            <td>Kateqoriya</td>
+            <td>Standart satış</td>
+            <td>Sayı</td>
+            <td></td>
           </tr>
-        {% endfor %}
-      </table>
+
+          {% for mehsul in mehsullar %}
+            <tr>
+              <td>{{ mehsul.mehsul_adi }}</td>
+              <td><a href="{% url "firma" mehsul.firma %}">{{ mehsul.firma }}</a></td>
+              <td>
+
+                {% for kategori in mehsul.kategoriya.all %}
+                  {{ kategori.kategoriya }}
+                {% endfor %}
+
+              </td>
+              <td>{{ mehsul.standart_satis }} AZN</td>
+              <td>
+                <input type="number" name="counts[]" value="0" min="0" id="count-{{ product.id }}">
+              </td>
+              <td>
+                <input type="checkbox" name="selected_items[]" value="{{ mehsul.id }}">
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        <div>
+          <button type="submit" class="button">Göndər</button>
+
+        </div>
+      </form>
 
       {% comment %} <a class="button" href="{% url "firmalar" %}">Ətraflı...</a> {% endcomment %}
     </div>
