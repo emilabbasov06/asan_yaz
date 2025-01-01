@@ -15,3 +15,4 @@ class MagazalarAdmin(admin.ModelAdmin):
 admin.site.register(models.Firmalar, FirmalarAdmin)
 admin.site.register(models.Mehsullar, MehsullarAdmin)
 admin.site.register(models.Magazalar, MagazalarAdmin)
+admin.site.register(models.Kategoriya)

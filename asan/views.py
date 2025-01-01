@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Firmalar, Magazalar, Mehsullar
+from .models import Firmalar, Magazalar, Mehsullar, Kategoriya
 
 # Create your views here.
 def index(request):
   mehsullar = Mehsullar.objects.all()
-  
+  kategoriyalar = Kategoriya.objects.all()
   context = {
-    'mehsullar': mehsullar
+    'mehsullar': mehsullar,
+    'kategoriyalar': kategoriyalar
   }
   return render(request, 'asan/index.html', context=context)
 

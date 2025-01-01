@@ -25,6 +25,7 @@
         <tr>
           <td>Məhsul adı</td>
           <td>Firma</td>
+          <td>Kateqoriya</td>
           <td>Standart satış</td>
         </tr>
 
@@ -32,6 +33,13 @@
           <tr>
             <td>{{ mehsul.mehsul_adi }}</td>
             <td><a href="{% url "firma" mehsul.firma %}">{{ mehsul.firma }}</a></td>
+            <td>
+
+              {% for kategori in mehsul.kategoriya.all %}
+                {{ kategori.kategoriya }}
+              {% endfor %}
+
+            </td>
             <td>{{ mehsul.standart_satis }} AZN</td>
           </tr>
         {% endfor %}

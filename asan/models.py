@@ -27,10 +27,21 @@ class Firmalar(models.Model):
     verbose_name_plural = 'Firmalar'
 
 
+class Kategoriya(models.Model):
+  kategoriya = models.CharField(max_length=100, blank=True)
+  
+  def __str__(self):
+    return f"{self.kategoriya}"
+  
+  class Meta:
+    verbose_name_plural = 'Kategoriyalar'
+
+
 class Mehsullar(models.Model):
   mehsul_adi = models.CharField(max_length=200)
   firma = models.ForeignKey(Firmalar, on_delete=models.CASCADE)
   magaza = models.CharField(max_length=100)
+  kategoriya = models.ManyToManyField(Kategoriya)
   standart_satis = models.FloatField()
   top_alis = models.FloatField()
   satis = models.FloatField()
