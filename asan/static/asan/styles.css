@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-  --main-color: rgb(9, 65, 129);
+  --main-color: rgb(10, 102, 206);
 }
 
 * {
@@ -11,12 +11,35 @@
   font-family: 'Nunito', sans-serif;
 }
 
+.button {
+  border: 1px solid var(--main-color);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.5s all;
+}
+
+.button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+main {
+  width: auto;
+  height: 100vh;
+  background-image: url('./images/background_header.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5rem;
-  background-color: var(--main-color);
+  /* background-color: rgba(112, 112, 112, 0.5); */
 }
 
 a {
@@ -24,19 +47,44 @@ a {
   text-decoration: none;
 }
 
+.logo {
+  width: 30%;
+  display: flex;
+  justify-content: start;
+}
+
 .logo a img {
-  width: 35%;
+  width: 60%;
   height: auto;
 }
 
+.searchbar {
+  width: 40%;
+}
+
+.searchbar input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 2rem;
+  outline: none;
+  font-size: 0.9rem;
+  transition: 0.5s all;
+}
+
+.searchbar input:focus {
+  padding: 1.4rem;
+}
+
 nav {
-  width: 15%;
+  width: 30%;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 nav ul li a {
@@ -45,6 +93,7 @@ nav ul li a {
   border-radius: 2rem;
   padding: 1rem;
   font-size: 0.9rem;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.5s all;
 }
@@ -52,4 +101,113 @@ nav ul li a {
 nav ul li a:hover {
   color: var(--main-color);
   background-color: white;
+}
+
+
+/* TABLE DESIGNING */
+.rwd-table {
+  margin: auto;
+  min-width: 300px;
+  max-width: 100%;
+  border-left: 1px solid var(--main-color);
+  border-right: 1px solid var(--main-color);
+  border-collapse: collapse;
+  font-size: small;
+}
+
+.rwd-table tr:first-child {
+  border-top: none;
+  background: var(--main-color);
+  color: #fff;
+}
+
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f9fc;
+}
+
+.rwd-table tr:nth-child(odd):not(:first-child) {
+  background-color: #ebf3f9;
+}
+
+.rwd-table th {
+  display: none;
+}
+
+.rwd-table td {
+  display: block;
+}
+
+.rwd-table td:first-child {
+  margin-top: .5em;
+}
+
+.rwd-table td:last-child {
+  margin-bottom: .5em;
+}
+
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 120px;
+  display: inline-block;
+  color: #000;
+}
+
+.rwd-table th,
+.rwd-table td {
+  text-align: left;
+}
+
+.rwd-table {
+  color: #333;
+  border-radius: .4em;
+  overflow: hidden;
+}
+
+.rwd-table tr {
+  border-color: #bfbfbf;
+}
+
+.rwd-table th,
+.rwd-table td {
+  padding: .5em 1em;
+}
+
+@media screen and (max-width: 601px) {
+  .rwd-table tr:nth-child(2) {
+    border-top: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .rwd-table tr:hover:not(:first-child) {
+    background-color: #d8e7f3;
+  }
+
+  .rwd-table td:before {
+    display: none;
+  }
+
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+
+  .rwd-table th:first-child,
+  .rwd-table td:first-child {
+    padding-left: 0;
+  }
+
+  .rwd-table th:last-child,
+  .rwd-table td:last-child {
+    padding-right: 0;
+  }
+
+  .rwd-table th,
+  .rwd-table td {
+    padding: 1em !important;
+  }
 }

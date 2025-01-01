@@ -18,10 +18,26 @@
         <div class="firma">
           <a class="firma_link" href="{% url "firma" firma.firma_adi %}">{{ firma.firma_adi }}</a>
           <div>
-            <p><span>Ünvan: </span>{{ firma.magaza.unvan }}</p>
+
+            <table class="rwd-table">
+              <tr>
+                <th>Ünvan</th>
+                <th>Əlaqə nömrəsi</th>
+                <th>E-poçt ünvanı</th>
+                <th>İnstagram səhifəsi</th>
+              </tr>
+
+              <tr>
+                <td>{{ firma.magaza.unvan }}</td>
+                <td>{{ firma.magaza.elaqe }}</td>
+                <td><a href="mailto:{{ firma.magaza.email }}">{{ firma.magaza.email }}</a></td>
+                <td><a href="https://www.instagram.com/{{ firma.magaza.instagram }}">@{{ firma.magaza.instagram }}</a></td>
+              </tr>
+            </table>
+            {% comment %} <p><span>Ünvan: </span>{{ firma.magaza.unvan }}</p>
             <p><span>Əlaqə nömrəsi: </span>{{ firma.magaza.elaqe }}</p>
             <p><span>E-poçt ünvanı: </span>{{ firma.magaza.email }}</p>
-            <p><span>İnstagram səhifəsi: </span>{{ firma.magaza.instagram }}</p>
+            <p><span>İnstagram səhifəsi: </span>{{ firma.magaza.instagram }}</p> {% endcomment %}
           </div>
         </div>
       {% endfor %}

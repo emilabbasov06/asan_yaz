@@ -4,7 +4,12 @@ from .models import Firmalar, Magazalar, Mehsullar
 
 # Create your views here.
 def index(request):
-  return render(request, 'asan/index.html')
+  mehsullar = Mehsullar.objects.all()
+  
+  context = {
+    'mehsullar': mehsullar
+  }
+  return render(request, 'asan/index.html', context=context)
 
 
 def firmalar(request):

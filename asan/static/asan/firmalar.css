@@ -1,5 +1,5 @@
 :root {
-  --main-color: rgb(9, 65, 129);
+  --main-color: rgb(10, 102, 206);
 }
 
 .container {
@@ -10,10 +10,15 @@
 }
 
 .container div {
+  width: 90%;
+  border: 2px solid var(--main-color);
+  border-radius: 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+  background-color: white;
 }
 
 .heading {
@@ -44,6 +49,28 @@
 .firma:hover .firma_link {
   color: white;
 }
+
+.firma div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  border: none;
+  border-radius: 0.2rem;
+  color: black;
+}
+
+/* 
+.firma table,
+tr,
+td,
+th {
+  font-size: small;
+  border: 1px solid black;
+  text-align: center;
+} */
 
 .firma p {
   font-size: small;

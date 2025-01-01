@@ -17,8 +17,8 @@
     <div class="blue_info">
       <p><span>Ünvan: </span>{{ firma.magaza.unvan }}</p>
       <p><span>Əlaqə nömrəsi: </span>{{ firma.magaza.elaqe }}</p>
-      <p><span>E-poçt ünvanı: </span>{{ firma.magaza.email }}</p>
-      <p><span>İnstagram səhifəsi: </span>{{ firma.magaza.instagram }}</p>
+      <p><span>E-poçt ünvanı: </span><a href="mailto:{{ firma.magaza.email }}">{{ firma.magaza.email }}</a></p>
+      <p><span>İnstagram səhifəsi: </span><a href="https://www.instagram.com/{{ firma.magaza.instagram }}">@{{ firma.magaza.instagram }}</a></p>
     </div>
   </div>
 </div>

@@ -1,9 +1,43 @@
 {% extends "asan/base.html" %}
+{% load static %}
 
-{% block css_styles %}{% endblock css_styles %}
+{% block css_styles %}
+  <link rel="stylesheet" href="{% static "asan/index.css" %}">
+{% endblock css_styles %}
 
 {% block title %}Ana səhifə{% endblock title %}
 
 {% block content %}
-<h1>ASAN YAZ-a xos gelmissiniz</h1>
+  <div class="outer">
+    <div class="container">
+      <h1><span>
+        ASAN.YAZ
+      </span> platformasına xoş gəlmişsiniz 👋🤩</h1>
+      <p>Tikinti üçün lazım olan materialların miqdarını və ümumi xərcləri asanlıqla hesablayın! Sistemimiz avtomatik olaraq cədvəl hazırlayır və xərcləri göstərir.</p>
+
+      {% comment %} <a class="button" href="{% url "firmalar" %}">Ətraflı...</a> {% endcomment %}
+    </div>
+
+    <div class="container">
+      <h2>Məhsullar</h2>
+
+      <table class="rwd-table">
+        <tr>
+          <td>Məhsul adı</td>
+          <td>Firma</td>
+          <td>Standart satış</td>
+        </tr>
+
+        {% for mehsul in mehsullar %}
+          <tr>
+            <td>{{ mehsul.mehsul_adi }}</td>
+            <td><a href="{% url "firma" mehsul.firma %}">{{ mehsul.firma }}</a></td>
+            <td>{{ mehsul.standart_satis }} AZN</td>
+          </tr>
+        {% endfor %}
+      </table>
+
+      {% comment %} <a class="button" href="{% url "firmalar" %}">Ətraflı...</a> {% endcomment %}
+    </div>
+  </div>
 {% endblock content %}

@@ -12,17 +12,26 @@
   <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
-  <header>
-    <div class="logo"><a href="{% url "home" %}">
-      <img src="{% static "asan/images/asan_yaz.png" %}" alt="Asan.YAZ">
-    </a></div>
-    <nav>
-      <ul>
-        <li><a href="{% url "home" %}">Ana səhifə</a></li>
-        <li><a href="{% url "firmalar" %}">Firmalar</a></li>
-      </ul>
-    </nav>
-  </header>
-  {% block content %}{% endblock content %}
+  <main>
+    <header>
+        <div class="logo"><a href="{% url "home" %}">
+          <img src="{% static "asan/images/asan_yaz.png" %}" alt="Asan.YAZ">
+        </a></div>
+
+        <div class="searchbar">
+          <input type="search" placeholder="Axtar" name="searc" id="search">
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="{% url "home" %}">Ana səhifə</a></li>
+            <li><a href="{% url "firmalar" %}">Firmalar</a></li>
+          </ul>
+        </nav>
+      </header>
+      {% block content %}{% endblock content %}
+
+  </main>
+  
 </body>
 </html>
