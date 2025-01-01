@@ -5,9 +5,9 @@ from . import models
 class FirmalarAdmin(admin.ModelAdmin):
   list_display = ('firma_adi', 'magaza')
 
-
 class MehsullarAdmin(admin.ModelAdmin):
   list_display = ('mehsul_adi', 'firma', 'magaza', 'standart_satis', 'top_alis', 'satis')
+  list_filter = ('kategoriya', 'magaza')
 
 class MagazalarAdmin(admin.ModelAdmin):
   list_display = ('magaza_adi', 'unvan', 'elaqe', 'email', 'instagram')
