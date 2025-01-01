@@ -1,0 +1,32 @@
+{% extends "asan/base.html" %}
+{% load static %}
+
+{% block css_styles %}
+  <link rel="stylesheet" href="{% static "asan/firmalar.css" %}">
+{% endblock css_styles %}
+
+{% block title %}Firmalar{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  <div>
+    <h1 class='heading'>Firmalar</h1>
+
+    <ul class="firmalar">
+      {% for firma in firmalar %}
+        <div class="firma">
+          <a class="firma_link" href="{% url "firma" firma.firma_adi %}">{{ firma.firma_adi }}</a>
+          <div>
+            <p><span>Ünvan: </span>{{ firma.magaza.unvan }}</p>
+            <p><span>Əlaqə nömrəsi: </span>{{ firma.magaza.elaqe }}</p>
+            <p><span>E-poçt ünvanı: </span>{{ firma.magaza.email }}</p>
+            <p><span>İnstagram səhifəsi: </span>{{ firma.magaza.instagram }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock content %}

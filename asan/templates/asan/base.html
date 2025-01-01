@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="{% static "asan/images/asan_yaz.png" %}">
+  <link rel="stylesheet" href="{% static "asan/styles.css" %}">
+  {% block css_styles %}{% endblock css_styles %}
+
+  <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="{% url "home" %}">
+      <img src="{% static "asan/images/asan_yaz.png" %}" alt="Asan.YAZ">
+    </a></div>
+    <nav>
+      <ul>
+        <li><a href="{% url "home" %}">Ana səhifə</a></li>
+        <li><a href="{% url "firmalar" %}">Firmalar</a></li>
+      </ul>
+    </nav>
+  </header>
+  {% block content %}{% endblock content %}
+</body>
+</html>
